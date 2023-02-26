@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Latex to Boolean Converter</title>
+    <script src="./Source.js"></script>
+  </head>
+  <body>
+    <p>Test page. Latex to Boolean</p>
+    <textarea id="textbox" cols="80" rows="8" placeholder=" INPUT"></textarea>
+    <br>
+    <button id="ConvertButton">Convert</button>
+    <br><br>
+    <textarea id="textbox outputbox" cols="80" rows="8"placeholder=" OUTPUT"></textarea>
+    <br>
+    <form action="https://github.com/fixfell7/Latex2boolean" method="get" target="_blank">
+      <button style="position: fixed; bottom: 1em;" type="submit">Github rep</button>
+   </form>
+  </body>
+
+  <style>
+    body {
+      background-color: #12131a;
+      color: #eee;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    textarea {
+      background-color: #1d1e25;
+      color: #eee;
+    }
+    button {
+      background-color: #1d1e25;
+      color: #eee;
+      border: 1px solid #111;
+      border-radius: 5px;
+      padding: 5px;
+      min-width: 6em;
+      cursor: pointer;
+      transition: all ease-in-out 0.2s;
+    }
+    button:hover {
+      background-color: #2d2e35;
+      /*transform: translate(0, -1px);*/
+    }
+  </style>
+
+  <script>
+    var inputbox = document.getElementById("textbox");
+    var outputbox = document.getElementById("textbox outputbox");
+    var button = document.getElementById("ConvertButton");
+    button.addEventListener("click", function() {
+      outputbox.value = convertEquation(inputbox.value);
+      console.log("button clicked: " + inputbox.value);
+    });
+  </script>
+</html>
