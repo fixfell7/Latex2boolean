@@ -1,11 +1,11 @@
 function convertEquation(equation) {
 	let SimpleDic = [
-		[' ',			''],
-		['\\cdot',		'⋅'],	// multiplication
-		['\\oplus',		'⊕'],	// XOR
-		['\\bigoplus',	'⊕'],	// XOR
-		['\\odot',		'⊕'],	// XNOR
-		['\\bigodot',	'⊕']	// XNOR
+		[' ',			''],		// Space
+		['\\cdot',		'\u22C5'],	// multiplication ⋅
+		['\\oplus',		'\u2295'],	// XOR ⊕
+		['\\bigoplus',		'\u2295'],	// XOR ⊕
+		['\\odot',		'\u2299'],	// XNOR ⊙
+		['\\bigodot',		'\u2299']	// XNOR ⊙
 	]
 
 	let BracketDic = [
