@@ -6,5 +6,5 @@ A Latex to Boolean Algebra converter
 The code works, the library is not full
 
 it can convert things
-- like this: `x=\\overline{A \\cdot \\left( B \\oplus C\\right)+\\overline{\\overline{D}+E}}`
-- to this: `x=~(A⋅(B⊕C)+~(~(D)+E))`
+- like this: `X=\overline{A \cdot \left( B \oplus C\right)+\overline{\overline{D}+E}}`
+- to this: `X=~(A⋅(B⊕C)+~(~(D)+E))`
