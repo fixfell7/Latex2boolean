@@ -15,6 +15,10 @@
     <form action="https://github.com/fixfell7/Latex2boolean" method="get" target="_blank">
       <button style="position: fixed; bottom: 1em;" type="submit">Github rep</button>
    </form>
+   <br><br>
+   <p>Example:</p>
+   <p>Input: <code>X=\overline{A \cdot \left( B \oplus C\right)+\overline{\overline{D}+E}}</code></p>
+   <p>Output: <code>X=~(A⋅(B⊕C)+~(~(D)+E))</code></p>
   </body>
 
   <style>
@@ -41,6 +45,11 @@
     button:hover {
       background-color: #2d2e35;
       /*transform: translate(0, -1px);*/
+    }
+    code {
+      background-color: #ffffff10;
+      padding: 1px 2px;
+      border-radius: 5px;
     }
   </style>
 
