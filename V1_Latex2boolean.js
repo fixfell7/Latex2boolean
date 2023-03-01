@@ -6,15 +6,15 @@ function convertEquation(equation) {
 		['\\oplus',		'\u2295'],	// XOR ⊕
 		['\\bigoplus',		'\u2295'],	// XOR ⊕
 		['\\odot',		'\u2299'],	// XNOR ⊙
-		['\\bigodot',		'\u2299']	// XNOR ⊙
+		['\\bigodot',		'\u2299'],	// XNOR ⊙
 	]
 
 	let BracketDic = [
         ["\\overline{","}",     "~(",")",   "{","}"],   // overline         [BeforeStart,BeforeEnd,  AfterStart,AfterEnd,  CheckOpening,CheckClosing]
 	["\\bar{","}",          "~(",")",   "{","}"],   // overline
         ["\\left(","\\right)",  "(",")",    "(",")"],   // parentheses
-	["\\boldsymbol{","}",   "","",      "{","}"]    // tex artifact
-	["\\text{","}",         "","",      "{","}"]    // tex artifact
+	["\\boldsymbol{","}",   "","",      "{","}"],   // tex artifact
+	["\\text{","}",         "","",      "{","}"],   // tex artifact
 	//["xxx","xxx",  "yyy","yyy",   "zzz","zzz"],
 
 	]
