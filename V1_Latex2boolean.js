@@ -13,7 +13,8 @@ function convertEquation(equation) {
         ["\\overline{","}",     "~(",")",   "{","}"],   // overline         [BeforeStart,BeforeEnd,  AfterStart,AfterEnd,  CheckOpening,CheckClosing]
 	["\\bar{","}",          "~(",")",   "{","}"],   // overline
         ["\\left(","\\right)",  "(",")",    "(",")"],   // parentheses
-	["\\boldsymbol{","}",   "","",      "{","}"]    // weird artifact
+	["\\boldsymbol{","}",   "","",      "{","}"]    // tex artifact
+	["\\text{","}",         "","",      "{","}"]    // tex artifact
 	//["xxx","xxx",  "yyy","yyy",   "zzz","zzz"],
 
 	]
