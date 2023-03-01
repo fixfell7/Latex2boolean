@@ -1,6 +1,7 @@
 function convertEquation(equation) {
 	let SimpleDic = [
-		[' ',			''],		// Space
+		[' ',			''],		// Space 
+		['$',			''],		// Money 
 		['\\cdot',		'\u22C5'],	// multiplication ⋅
 		['\\oplus',		'\u2295'],	// XOR ⊕
 		['\\bigoplus',		'\u2295'],	// XOR ⊕
@@ -10,7 +11,11 @@ function convertEquation(equation) {
 
 	let BracketDic = [
         ["\\overline{","}",     "~(",")",   "{","}"],   // overline         [BeforeStart,BeforeEnd,  AfterStart,AfterEnd,  CheckOpening,CheckClosing]
-        ["\\left(","\\right)",  "(",")",   "(",")"]     // parentheses
+	["\\bar{","}",          "~(",")",   "{","}"],   // overline
+        ["\\left(","\\right)",  "(",")",    "(",")"],   // parentheses
+	["\\boldsymbol{","}",   "","",      "{","}"]    // weird artifact
+	//["xxx","xxx",  "yyy","yyy",   "zzz","zzz"],
+
 	]
 	
 	for (let i = 0; i < equation.length; i++) {		// SimpleDic
