@@ -2,23 +2,34 @@
 <html>
   <head>
     <title>Latex to Boolean Converter</title>
-    <script src="./V1_Latex2boolean.js"></script>
+    <script src="./V1.1_Latex2boolean.js"></script>
   </head>
   <body>
-    <p>Test page. Latex to Boolean</p>
+    <p>Latex to Boolean</p>
     <textarea id="textbox" cols="80" rows="8" placeholder=" INPUT"></textarea>
     <br>
-    <button id="ConvertButton">Convert</button>
-    <br><br>
+    <div>
+        <button id="ConvertButton">Convert</button>&ensp;
+        <div style="display:inline-block; position:absolute; font-size: small;">
+            <input type="checkbox" id="checkbox"> Keep only text inside $$
+        </div>
+    </div>
+    <br>
     <textarea id="textbox outputbox" cols="80" rows="8"placeholder=" OUTPUT"></textarea>
     <br>
     <form action="https://github.com/fixfell7/Latex2boolean" method="get" target="_blank">
-      <button style="position: fixed; bottom: 1em;" type="submit">Github rep</button>
+      <button style="position:fixed; bottom:1em;" type="submit">Github rep</button>
    </form>
    <br><br>
    <p>Example:</p>
    <p>Input: <code>X=\overline{A \cdot \left( B \oplus C\right)+\overline{\overline{D}+E}}</code></p>
-   <p>Output: <code>X=~(A⋅(B⊕C)+~(~(D)+E))</code></p>
+   <p>Output: <code>X=~(A*(B⊕C)+~(~(D)+E))</code></p>
+   <br>
+   <p>Useful website/software:</p>
+    <p><a href="https://www.emathhelp.net/calculators/discrete-mathematics/boolean-algebra-calculator/" target="_blank">Boolean Algebra Calculator</a></p>
+    <p><a href="https://github.com/logisim-evolution/logisim-evolution" target="_blank">Logisim Evolution</a><small>&ensp;(designing and simulating digital logic circuits)</small></p>
+    <p><a href="https://snip.mathpix.com/" target="_blank">Mathpix Snip</a><small>&ensp;(converts images of math equations to LaTeX)</small></p>
+   <br>
   </body>
 
   <style>
@@ -55,14 +66,54 @@
       padding: 1px 2px;
       border-radius: 5px;
     }
+    a:any-link {
+        color: #77b;
+    }
+    a:any-link:active, a:any-link:hover {
+        color: #44a;
+    }
+    small {
+        position: absolute;
+    }
+
+
+
   </style>
 
   <script>
     var inputbox = document.getElementById("textbox");
     var outputbox = document.getElementById("textbox outputbox");
     var button = document.getElementById("ConvertButton");
+    var checkbox = document.getElementById("checkbox");
     button.addEventListener("click", function() {
-      outputbox.value = convertEquation(inputbox.value);
+        outputbox.value = convertEquation(inputbox.value, checkbox.checked);
     });
+
+    console.log("Last storage: \n\n INPUT:\n" + 
+        localStorage.getItem("inputbox") + "\n\n Keep only text inside $$:\n" + 
+        localStorage.getItem("checkbox") + "\n----------------");
+
+    window.addEventListener("load", function() {
+
+
+        // store inputbox.value in local storage when it changes
+        inputbox.addEventListener("input", function() {
+            localStorage.setItem("inputbox", inputbox.value);
+        });
+        if (localStorage.getItem("inputbox") != "" && localStorage.getItem("inputbox") != null) {
+            inputbox.value = localStorage.getItem("inputbox");
+        }
+
+        // store checkbox.checked in local storage when it changes (true or false)
+        checkbox.addEventListener("change", function() {
+            localStorage.setItem("checkbox", checkbox.checked);
+        });
+        if (localStorage.getItem("checkbox") != "" && localStorage.getItem("checkbox") != null) {
+            checkbox.checked = JSON.parse(localStorage.getItem("checkbox"));
+        }
+
+    });
+
+
   </script>
 </html>
