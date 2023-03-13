@@ -127,7 +127,7 @@ function convertEquation(equation, CheckOutside = true) {
                     if (str.startsWith(Dic[0][j], i) && str.startsWith(Dic[1][k], i+1)) {
                         // str = Dic[0][j] + '*' + Dic[1][k]
                         str = str.substring(0, i) + Dic[0][j] + '*' + Dic[1][k] + str.substring(i + 2);
-                        i -= 1;
+                        //i -= 1;				//BRUH
                     }
                 }
             }
