@@ -83,6 +83,7 @@ function convertEquation(equation, CheckOutside = true) {
                 if (str.startsWith(Dic[j][0], i)) {
                     str = str.substring(0, i) + Dic[j][1] + str.substring(i + Dic[j][0].length);
                     i -= 1; // to check again if the new char is also in the dictionary
+                    break; // break j loop
                 }
             }
         }
@@ -112,6 +113,7 @@ function convertEquation(equation, CheckOutside = true) {
                         }
                     }
                     i -= 1;
+                    break; // break j loop
                 }
             }
         }
@@ -120,18 +122,16 @@ function convertEquation(equation, CheckOutside = true) {
 
     equation = ReplaceMultipli(equation, MultipliDic);           // MultipliDic
     function ReplaceMultipli(str, Dic) {
-        for (let i = 0; i < str.length; i++) { 
-
-            for (let j = 0; j < Dic[0].length; j++) {   //loops ~2862 times :|
-                for (let k = 0; k < Dic[1].length; k++) { 
+        outer: for (let i = 0; i < str.length; i++) { 
+            middle: for (let j = 0; j < Dic[0].length; j++) {
+                inner: for (let k = 0; k < Dic[1].length; k++) { 
                     if (str.startsWith(Dic[0][j], i) && str.startsWith(Dic[1][k], i+1)) {
-                        // str = Dic[0][j] + '*' + Dic[1][k]
                         str = str.substring(0, i) + Dic[0][j] + '*' + Dic[1][k] + str.substring(i + 2);
-                        //i -= 1;				//BRUH
+                        i += 1;         // no rechecking needed AND don't check the "*" sign
+                        break middle;   // exit both the j and k loops and continue with the next i iteration
                     }
                 }
             }
-
         }
         return str;
     }
